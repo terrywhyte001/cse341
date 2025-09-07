@@ -1,0 +1,14 @@
+# -------------------------
+# Get All Contacts
+# -------------------------
+GET http://localhost:3000/contacts
+Accept: application/json
+
+###
+
+# -------------------------
+# Get Single Contact by ID
+# Replace <CONTACT_ID> with a valid MongoDB ObjectId
+# -------------------------
+GET http://localhost:3000/contacts/<CONTACT_ID>
+Accept: application/json
