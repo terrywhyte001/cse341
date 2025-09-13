@@ -1,3 +1,4 @@
+console.log("👉 THIS IS THE CORRECT SERVER.JS FILE RUNNING");
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
