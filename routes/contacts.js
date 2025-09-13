@@ -34,6 +34,32 @@ router.post('/', async (req, res) => {
   }
 });
 
+// PUT update a contact
+router.put('/:id', async (req, res) => {
+  try {
+    const updated = await Contact.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!updated) return res.status(404).json({ message: 'Contact not found' });
+    res.json(updated);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+// DELETE a contact
+router.delete('/:id', async (req, res) => {
+  try {
+    const deleted = await Contact.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ message: 'Contact not found' });
+    res.json({ message: 'Contact deleted successfully' });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 module.exports = router;
+
 
 
