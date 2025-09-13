@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 });
 
 // Connect to MongoDB
+require('dotenv').config()
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
