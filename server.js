@@ -5,7 +5,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware to parse JSON
+// Middleware to parse JSONserver
 app.use(express.json());
 
 // Connect to MongoDB
