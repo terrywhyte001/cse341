@@ -23,5 +23,17 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// POST create a new contact
+router.post('/', async (req, res) => {
+  try {
+    const newContact = new Contact(req.body);
+    const saved = await newContact.save();
+    res.status(201).json(saved);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 module.exports = router;
+
 

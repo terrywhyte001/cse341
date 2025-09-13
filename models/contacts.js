@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const contactSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: String,
-  phone: String
+  firstName: { type: String, required: true },
+  lastName:  { type: String, required: true },
+  email:     { type: String, required: true }
 });
 
-module.exports = mongoose.model('Contact', contactSchema);
+// force it to use 'contacts' collection
+module.exports = mongoose.model('Contact', contactSchema, 'contacts');
