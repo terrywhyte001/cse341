@@ -1,29 +1,26 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config();  // Load variables from .env
+require('dotenv').config();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Middleware
+// Middleware to parse JSON
 app.use(express.json());
 
-// Import routes
-const contactsRoute = require('./routes/contacts');
-app.use('/contacts', contactsRoute);
-
-// Default route
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
-
 // Connect to MongoDB
-require('dotenv').config()
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose.connect('mongodb://localhost:27017/contactsdb')
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
 
-const PORT = process.env.PORT || 3000;
+// Routes
+const contactsRoute = require('./routes/contacts');
+app.use('/contacts', contactsRoute);
+
+// Test route
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
+// Start server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
