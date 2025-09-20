@@ -1,0 +1,27 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Project CRUD API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/items": {
+      "get": { "summary": "Get all items", "responses": { "200": { "description": "OK" } } },
+      "post": { "summary": "Create item", "responses": { "201": { "description": "Created" }, "400": { "description": "Validation error" } } }
+    },
+    "/items/{id}": {
+      "get": { "summary": "Get item by ID", "responses": { "200": { "description": "OK" }, "404": { "description": "Not found" } } },
+      "put": { "summary": "Update item", "responses": { "200": { "description": "Updated" }, "400": { "description": "Validation error" }, "404": { "description": "Not found" } } },
+      "delete": { "summary": "Delete item", "responses": { "200": { "description": "Deleted" }, "404": { "description": "Not found" } } }
+    },
+    "/users": {
+      "get": { "summary": "Get all users", "responses": { "200": { "description": "OK" } } },
+      "post": { "summary": "Create user", "responses": { "201": { "description": "Created" }, "400": { "description": "Validation error" } } }
+    },
+    "/users/{id}": {
+      "get": { "summary": "Get user by ID", "responses": { "200": { "description": "OK" }, "404": { "description": "Not found" } } },
+      "put": { "summary": "Update user", "responses": { "200": { "description": "Updated" }, "400": { "description": "Validation error" }, "404": { "description": "Not found" } } },
+      "delete": { "summary": "Delete user", "responses": { "200": { "description": "Deleted" }, "404": { "description": "Not found" } } }
+    }
+  }
+}
