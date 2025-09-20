@@ -2,7 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const itemRoutes = require('./routes/itemRoutes');
+const itemRoutes = require('./routes/itemroutes');
 const userRoutes = require('./routes/userRoutes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI)
 // -------------------------
 // Routes
 // -------------------------
-app.use('/items', itemRoutes);
+app.use('/items', itemroutes);
 app.use('/users', userRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
